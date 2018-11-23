@@ -37,7 +37,6 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         idleTime = Random.Range(2.0f, 10.0f);
         timer = 0f;
-        targeted.SetActive(false);
     }
 	
 
@@ -167,5 +166,20 @@ public class EnemyController : MonoBehaviour
     public void Targeted(bool set)
     {
         targeted.SetActive(set);
+    }
+
+    public void ActivatePanel(GameObject panel)
+    {
+        panel.SetActive(true);
+    }
+
+    public void ClosePanel(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
+
+    public void UpdateField()
+    {
+
     }
 }

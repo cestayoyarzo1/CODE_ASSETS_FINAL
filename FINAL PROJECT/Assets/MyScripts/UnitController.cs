@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class UnitController : MonoBehaviour
 {
@@ -35,6 +36,9 @@ public class UnitController : MonoBehaviour
 
     [SerializeField]
     GameObject magicrRing;
+    [SerializeField]
+    GameObject mainCanvas;
+
     void Start ()
     {
         anim = GetComponent<Animator>();
@@ -64,12 +68,14 @@ public class UnitController : MonoBehaviour
                     target= hit.transform.root.gameObject;
                     Debug.Log("Enemy Targeted");
                     target.GetComponent<EnemyController>().Targeted(true);
+                    ActivateTargetPanel();
                 }
                 else
                 {
                     if(target != null)
                     {
                         target.GetComponent<EnemyController>().Targeted(false);
+                        DeactivateTargetPanel();
                     }
                     target = null;
                     agent.destination = hit.point;
@@ -78,7 +84,7 @@ public class UnitController : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKey(KeyCode.F1) && !attacking1)
+        if (Input.GetKey(KeyCode.F1) && !attacking1 && target != null)
         {
             attacking1 = true;
             Attack1();
@@ -192,6 +198,20 @@ public class UnitController : MonoBehaviour
     public GameObject GetTarget()
     {
         return target;
+    }
+
+    public void ActivateTargetPanel()
+    {
+        GameObject thisTarget = GetTarget();
+        if(thisTarget != null)
+        {
+            mainCanvas.GetComponent<MainCanvasScript>().ActivateTargetPanel(thisTarget);
+        }
+    }
+
+    public void DeactivateTargetPanel()
+    {
+        mainCanvas.GetComponent<MainCanvasScript>().DeactivateTargetPanel();
     }
     
 }

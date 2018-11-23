@@ -749,6 +749,7 @@ GameObject:
   - component: {fileID: 95907138642099636}
   - component: {fileID: 114724890744731540}
   - component: {fileID: 195045975217616590}
+  - component: {fileID: 114366760431653668}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Enemy
@@ -1363,7 +1364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1877358491322650
 GameObject:
   m_ObjectHideFlags: 1
@@ -1608,7 +1609,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1490270980540004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 387.94467, y: 3.0226111, z: 390.3258}
+  m_LocalPosition: {x: 463.7, y: 4.7, z: 370.2}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4514836905121180}
@@ -3009,6 +3010,21 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114366760431653668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490270980540004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ed890e7808b4647a4d5df4ae14f480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Zolrik
+  classType: Figther
+  level: 5
+  maxHP: 1000
 --- !u!114 &114415574490111646
 MonoBehaviour:
   m_ObjectHideFlags: 1
