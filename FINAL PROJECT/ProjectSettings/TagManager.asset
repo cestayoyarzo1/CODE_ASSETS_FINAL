@@ -9,6 +9,7 @@ TagManager:
   - Terrain
   - Enemy
   - TargetPanel
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

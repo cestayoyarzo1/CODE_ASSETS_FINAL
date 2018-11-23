@@ -47,6 +47,7 @@ public class UnitController : MonoBehaviour
         attacking2 = false;
         firingRing = GameObject.FindGameObjectWithTag("Ring").transform;
         footSteps = GetComponentInChildren<AudioSource>();
+        mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
     }
 	
 
@@ -64,6 +65,7 @@ public class UnitController : MonoBehaviour
                     if(temp.gameObject != target && target != null) //selecting a different target and previous not null
                     {
                         target.GetComponent<EnemyController>().Targeted(false);
+                        DeactivateTargetPanel();
                     }
                     target= hit.transform.root.gameObject;
                     Debug.Log("Enemy Targeted");

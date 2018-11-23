@@ -2784,7 +2784,7 @@ GameObject:
   - component: {fileID: 350225288}
   m_Layer: 5
   m_Name: MainCanvas
-  m_TagString: Untagged
+  m_TagString: MainCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3767,7 +3767,7 @@ Prefab:
         type: 2}
       propertyPath: mainCanvas
       value: 
-      objectReference: {fileID: 350225286}
+      objectReference: {fileID: 350225283}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be9bf81080ae120469f2033ec6bca292, type: 2}
   m_IsPrefabAsset: 0
