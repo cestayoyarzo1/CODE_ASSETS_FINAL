@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 222854062553113846}
   - component: {fileID: 114534802304917018}
   m_Layer: 0
-  m_Name: Zolrik Lvl 5
+  m_Name: Tag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3021,9 +3021,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ed890e7808b4647a4d5df4ae14f480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Zolrik
+  name: Mercenary Zolrik
   classType: Figther
-  level: 4
+  level: 6
   maxHP: 1000
   health: 0
 --- !u!114 &114415574490111646
@@ -3074,7 +3074,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Zolrik (Lvl 5) '
+  m_Text: name
 --- !u!114 &114724890744731540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12667,9 +12667,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 4.2, y: -36.1}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 4.2002363, y: -21.09996}
+  m_SizeDelta: {x: 300, y: 30}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &224566226878366754
 RectTransform:
   m_ObjectHideFlags: 1

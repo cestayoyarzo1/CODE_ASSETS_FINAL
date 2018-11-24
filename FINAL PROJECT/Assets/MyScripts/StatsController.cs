@@ -21,6 +21,7 @@ public class StatsController : MonoBehaviour
     int level, maxHP, health;
 
     Stats stats;
+    Text nameTag;
     void Start ()
     {
         stats.Name = name;
@@ -28,6 +29,8 @@ public class StatsController : MonoBehaviour
         stats.Level = level;
         stats.MaxHP = maxHP;
         stats.Health = maxHP;
+        nameTag = GetComponentInChildren<Text>();
+        nameTag.text = name + " (lvl " + level.ToString() + ")";
     }
 	
 	void Update ()

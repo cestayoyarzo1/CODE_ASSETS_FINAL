@@ -48,7 +48,7 @@ public class UnitController : MonoBehaviour
         AudioSource[] audios = GetComponentsInChildren<AudioSource>();
         print(audios.Length + " audios");
         footSteps = audios[0];
-        spellCast1 = audios[1];
+        //spellCast1 = audios[1];
         mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
     }
 	
@@ -177,7 +177,7 @@ public class UnitController : MonoBehaviour
 
     void Attack1()
     {
-        spellCast1.Play(20000);
+        //spellCast1.Play(20000);
         footSteps.Stop();
         agent.isStopped = true;
         anim.SetBool("Run", false);
