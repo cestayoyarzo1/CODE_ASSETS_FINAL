@@ -3023,8 +3023,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Zolrik
   classType: Figther
-  level: 5
+  level: 4
   maxHP: 1000
+  health: 0
 --- !u!114 &114415574490111646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3085,13 +3086,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ed8ad498b094b4cb4a2689ce07297f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
   health: 0
-  maxHealth: 0
+  maxHealth: 1000
   idleTime: 0
   timer: 0
   randomRadius: 30
   targeted: {fileID: 1867690524198108}
+  attackDistance: 0
 --- !u!114 &114989723976535544
 MonoBehaviour:
   m_ObjectHideFlags: 1

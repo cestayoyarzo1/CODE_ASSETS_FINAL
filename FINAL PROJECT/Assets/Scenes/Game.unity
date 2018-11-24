@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.2
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 200358498}
-  m_IndirectSpecularColor: {r: 0.1987904, g: 0.22374353, b: 0.26468542, a: 0.2}
+  m_IndirectSpecularColor: {r: 0.19879052, g: 0.22374377, b: 0.2646857, a: 0.2}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -4030,16 +4030,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114724890744731540, guid: 816b10be291670049932edf5f1356a52,
-        type: 2}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 884187471}
-    - target: {fileID: 114366760431653668, guid: 816b10be291670049932edf5f1356a52,
-        type: 2}
-      propertyPath: level
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 816b10be291670049932edf5f1356a52, type: 2}
   m_IsPrefabAsset: 0
@@ -5349,7 +5339,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: ccb4c7c64196e1b4da4b36331e8c5210, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.8
+  m_Pitch: 0.75
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -7316,10 +7306,10 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: e5af5a5fca33f2b408a530da75dbf9e4, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -12079,7 +12069,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 94917dc5579692e4a9d43cd37894cf4f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0

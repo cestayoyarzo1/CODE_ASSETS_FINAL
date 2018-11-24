@@ -13,6 +13,7 @@ public class MainCanvasScript : MonoBehaviour
     GameObject panel;
     [SerializeField]
     Text name, level;
+    GameObject panelTarget;
 
 
     void Start ()
@@ -26,14 +27,19 @@ public class MainCanvasScript : MonoBehaviour
 
 	void Update ()
     {
-		
-	}
+        if(panel.activeSelf)
+        {
+            UpdateHealth();
+        }
+    }
 
     public void ActivateTargetPanel(GameObject target)
     {
-        Stats tempStats = target.GetComponent<StatsController>().GetStats();
+        panelTarget = target;
+        Stats tempStats = panelTarget.GetComponent<StatsController>().GetStats();
         name.text = tempStats.Name;
         level.text = "Level " + tempStats.Level.ToString();
+        targetHealthBar.fillAmount = tempStats.Health / tempStats.MaxHP;
         panel.SetActive(true);
     }
 
@@ -41,4 +47,12 @@ public class MainCanvasScript : MonoBehaviour
     {
         panel.SetActive(false);
     }
+
+    public void UpdateHealth()
+    {
+        Stats tempStats = panelTarget.GetComponent<StatsController>().GetStats();
+        targetHealthBar.fillAmount = tempStats.Health / tempStats.MaxHP;
+    }
+
+
 }

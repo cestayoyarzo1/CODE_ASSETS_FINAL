@@ -6,14 +6,16 @@ using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField]
-    Image healthBar;
+    //[SerializeField]
+    //Image healthBar;
     [SerializeField]
     float health, maxHealth;
     [SerializeField]
     float idleTime, timer, randomRadius;
     [SerializeField]
     GameObject targeted;
+    [SerializeField]
+    float attackDistance;
 
     enum MonsterState
     {
@@ -37,6 +39,7 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         idleTime = Random.Range(2.0f, 10.0f);
         timer = 0f;
+        health = maxHealth;
     }
 	
 
@@ -181,5 +184,15 @@ public class EnemyController : MonoBehaviour
     public void UpdateField()
     {
 
+    }
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        Mathf.Clamp(health, 0, health);
+        GetComponent<StatsController>().UpdateHealth(health);
+        if(health <= 0)
+        {
+            Die();
+        }
     }
 }

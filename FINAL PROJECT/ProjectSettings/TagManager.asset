@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - TargetPanel
   - MainCanvas
+  - DamageFromPlayer
   layers:
   - Default
   - TransparentFX

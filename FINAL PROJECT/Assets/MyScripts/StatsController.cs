@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public struct Stats
 {
     public string Name;
     public string Class;
     public int Level;
-    public int MaxHP;
+    public float MaxHP;
+    public float Health;
 }
 
 
@@ -16,7 +18,7 @@ public class StatsController : MonoBehaviour
     [SerializeField]
     string name, classType;
     [SerializeField]
-    int level, maxHP;
+    int level, maxHP, health;
 
     Stats stats;
     void Start ()
@@ -25,7 +27,7 @@ public class StatsController : MonoBehaviour
         stats.Class = classType;
         stats.Level = level;
         stats.MaxHP = maxHP;
-
+        stats.Health = maxHP;
     }
 	
 	void Update ()
@@ -37,4 +39,10 @@ public class StatsController : MonoBehaviour
     {
         return stats;
     }
+
+    public void UpdateHealth(float health)
+    {
+        stats.Health = health;
+    }
+
 }
