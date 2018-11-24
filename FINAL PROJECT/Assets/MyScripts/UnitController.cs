@@ -24,7 +24,6 @@ public class UnitController : MonoBehaviour
     GameObject target;
     [SerializeField]
     Transform firingRing;
-
     AudioSource footSteps;
 
     //Other variables
@@ -38,7 +37,7 @@ public class UnitController : MonoBehaviour
     GameObject magicrRing;
     [SerializeField]
     GameObject mainCanvas;
-
+    AudioSource spellCast1;
     void Start ()
     {
         anim = GetComponent<Animator>();
@@ -46,7 +45,10 @@ public class UnitController : MonoBehaviour
         attacking1 = false;
         attacking2 = false;
         firingRing = GameObject.FindGameObjectWithTag("Ring").transform;
-        footSteps = GetComponentInChildren<AudioSource>();
+        AudioSource[] audios = GetComponentsInChildren<AudioSource>();
+        print(audios.Length + " audios");
+        footSteps = audios[0];
+        spellCast1 = audios[1];
         mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
     }
 	
@@ -175,6 +177,7 @@ public class UnitController : MonoBehaviour
 
     void Attack1()
     {
+        spellCast1.Play(20000);
         footSteps.Stop();
         agent.isStopped = true;
         anim.SetBool("Run", false);
