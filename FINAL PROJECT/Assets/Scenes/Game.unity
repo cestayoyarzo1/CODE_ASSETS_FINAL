@@ -4035,45 +4035,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 224249444971833580, guid: 816b10be291670049932edf5f1356a52,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 114534802304917018, guid: 816b10be291670049932edf5f1356a52,
-        type: 2}
-      propertyPath: m_Text
-      value: name
-      objectReference: {fileID: 0}
-    - target: {fileID: 224249444971833580, guid: 816b10be291670049932edf5f1356a52,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 4.2002363
-      objectReference: {fileID: 0}
-    - target: {fileID: 224249444971833580, guid: 816b10be291670049932edf5f1356a52,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -21.09996
-      objectReference: {fileID: 0}
-    - target: {fileID: 224249444971833580, guid: 816b10be291670049932edf5f1356a52,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1349377364356682, guid: 816b10be291670049932edf5f1356a52, type: 2}
-      propertyPath: m_Name
-      value: Tag
-      objectReference: {fileID: 0}
-    - target: {fileID: 114366760431653668, guid: 816b10be291670049932edf5f1356a52,
-        type: 2}
-      propertyPath: name
-      value: Mercenary Zolrik
-      objectReference: {fileID: 0}
-    - target: {fileID: 114366760431653668, guid: 816b10be291670049932edf5f1356a52,
-        type: 2}
-      propertyPath: level
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 816b10be291670049932edf5f1356a52, type: 2}
   m_IsPrefabAsset: 0
