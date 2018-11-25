@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UnitController : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class UnitController : MonoBehaviour
     bool attacking1, attacking2;
 
     [SerializeField]
-    GameObject magicrRing;
+    GameObject magicRing;
     [SerializeField]
     GameObject mainCanvas;
     AudioSource spellCast1;
@@ -50,42 +51,55 @@ public class UnitController : MonoBehaviour
         footSteps = audios[0];
         //spellCast1 = audios[1];
         mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
+        
     }
-	
 
+    int uiMask = -2;
 	void Update ()
     {
+        
 		if(Input.GetMouseButton(0))
         {
+            GraphicRaycaster uiRay;
+            PhysicsRaycaster test;
+            
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 500))
+
+            if(!EventSystem.current.IsPointerOverGameObject(uiMask))
             {
-                //print(hit.transform.tag);
-                Transform temp = hit.transform.root;
-                if (temp.CompareTag("Enemy"))
+
+                if (Physics.Raycast(ray, out hit, 500))
                 {
-                    if(temp.gameObject != target && target != null) //selecting a different target and previous not null
+                    //print(hit.transform.tag);
+                    Transform temp = hit.transform.root;
+                    if (temp.CompareTag("Enemy"))
                     {
-                        target.GetComponent<EnemyController>().Targeted(false);
-                        DeactivateTargetPanel();
+                        if (temp.gameObject != target && target != null) //selecting a different target and previous not null
+                        {
+                            target.GetComponent<EnemyController>().Targeted(false);
+                            DeactivateTargetPanel();
+                        }
+                        target = hit.transform.root.gameObject;
+                        Debug.Log("Enemy Targeted");
+                        target.GetComponent<EnemyController>().Targeted(true);
+                        ActivateTargetPanel();
                     }
-                    target= hit.transform.root.gameObject;
-                    Debug.Log("Enemy Targeted");
-                    target.GetComponent<EnemyController>().Targeted(true);
-                    ActivateTargetPanel();
-                }
-                else
-                {
-                    if(target != null)
+                    else
                     {
-                        target.GetComponent<EnemyController>().Targeted(false);
-                        DeactivateTargetPanel();
+                        if (target != null)
+                        {
+                            target.GetComponent<EnemyController>().Targeted(false);
+                            DeactivateTargetPanel();
+                        }
+                        target = null;
+                        agent.destination = hit.point;
+                        agent.isStopped = false;
+                        Run();
                     }
-                    target = null;
-                    agent.destination = hit.point;
-                    agent.isStopped = false;
-                    Run();
                 }
+
+
+
             }
         }
         if (Input.GetKey(KeyCode.F1) && !attacking1 && target != null)
@@ -93,7 +107,7 @@ public class UnitController : MonoBehaviour
             attacking1 = true;
             Attack1();
         }
-        if (Input.GetKey(KeyCode.F2) && !attacking2)
+        if (Input.GetKey(KeyCode.F2) && !attacking2 && target != null)
         {
             attacking2 = true;
             Attack2();
@@ -136,6 +150,7 @@ public class UnitController : MonoBehaviour
                 break;
 
             case PlayerState.Attack2:
+                transform.LookAt(target.GetComponentInChildren<Collider>().bounds.center);
                 if (Input.GetKeyUp(KeyCode.F2))
                 {
                     attacking2 = false;
@@ -196,7 +211,7 @@ public class UnitController : MonoBehaviour
         anim.SetBool("Attack1", false);
         anim.SetBool("Attack2", true);
         playerState = PlayerState.Attack2;
-        GameObject temp = Instantiate(magicrRing, transform.position, Quaternion.Euler(-90,0,0));
+        GameObject temp = Instantiate(magicRing, transform.position, Quaternion.Euler(-90,0,0));
         temp.transform.parent = transform;
     }
 

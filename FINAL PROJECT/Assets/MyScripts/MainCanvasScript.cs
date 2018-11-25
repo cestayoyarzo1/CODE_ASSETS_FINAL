@@ -54,5 +54,4 @@ public class MainCanvasScript : MonoBehaviour
         targetHealthBar.fillAmount = tempStats.Health / tempStats.MaxHP;
     }
 
-
 }
