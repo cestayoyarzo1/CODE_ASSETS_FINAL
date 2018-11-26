@@ -6,7 +6,7 @@ public class PanelController : MonoBehaviour
 {
     //Mouse configuration
     [SerializeField]
-    Texture2D defaultMouse, attackTexture, questTexture;
+    Texture2D defaultMouse, attackTexture, questTexture, pickUpTexture;
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
 
@@ -36,6 +36,10 @@ public class PanelController : MonoBehaviour
             else if (hit.transform.root.CompareTag("NPC"))
             {
                 Cursor.SetCursor(questTexture, hotSpot, cursorMode);
+            }
+            else if (hit.transform.root.CompareTag("Pickup"))
+            {
+                Cursor.SetCursor(pickUpTexture, hotSpot, cursorMode);
             }
             else
             {

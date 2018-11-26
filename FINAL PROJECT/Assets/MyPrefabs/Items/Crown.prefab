@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4599880865671318}
   - component: {fileID: 33821710714252452}
   - component: {fileID: 23662406637368618}
+  - component: {fileID: 135918077009495172}
   m_Layer: 0
   m_Name: Crown
   m_TagString: Pickup
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488068069923668}
   m_LocalRotation: {x: -0.7071068, y: -0, z: 0.000000059604645, w: 0.7071068}
-  m_LocalPosition: {x: 341.12283, y: 1.8491869, z: 110.86371}
+  m_LocalPosition: {x: 341.12283, y: 2.02, z: 110.86371}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488068069923668}
   m_Mesh: {fileID: 4300000, guid: 87193c252f83cf9418266b2794e66db4, type: 3}
+--- !u!135 &135918077009495172
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488068069923668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.111193106
+  m_Center: {x: 0.0024760962, y: 0.00038, z: 0.03589448}

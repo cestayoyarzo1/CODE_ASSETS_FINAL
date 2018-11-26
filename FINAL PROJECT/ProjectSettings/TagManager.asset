@@ -12,6 +12,7 @@ TagManager:
   - MainCanvas
   - DamageFromPlayer
   - NPC
+  - Pickup
   layers:
   - Default
   - TransparentFX

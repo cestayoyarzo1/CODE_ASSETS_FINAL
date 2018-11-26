@@ -22,7 +22,7 @@ public class UnitController : MonoBehaviour
     [SerializeField]
     PlayerState playerState;
     [SerializeField]
-    GameObject target;
+    GameObject target, prevTarget;
     [SerializeField]
     Transform firingRing;
     AudioSource footSteps;
@@ -54,61 +54,80 @@ public class UnitController : MonoBehaviour
         
     }
 
+
     int uiMask = -2;
+    bool targeting;
+
 	void Update ()
     {
         
-		if(Input.GetMouseButton(0))
+		if(Input.GetMouseButton(0) && !targeting)
         {      
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
             if(!EventSystem.current.IsPointerOverGameObject(uiMask))
             {
-
+                //carlos new *****
                 if (Physics.Raycast(ray, out hit, 500))
                 {
-                    //print(hit.transform.tag);
-                    Transform temp = hit.transform.root;
-                    if (temp.CompareTag("Enemy"))
+                    targeting = true;
+                    Transform tempTransform= hit.transform.root;
+                    if (target == null)    //first time getting a target
                     {
-                        if (temp.gameObject != target && target != null) //selecting a different target and previous not null
+                        if (tempTransform.CompareTag("Enemy")) //targetting an enemy
                         {
-                            target.GetComponent<EnemyController>().Targeted(false);
-                            DeactivateTargetPanel();
+                            target = tempTransform.gameObject;
+                            target.GetComponent<EnemyController>().Targeted(true);
+                            ActivateTargetPanel();
                         }
-                        target = hit.transform.root.gameObject;
-                        Debug.Log("Enemy Targeted");
-                        target.GetComponent<EnemyController>().Targeted(true);
-                        ActivateTargetPanel();
-                    }
-                    else if (temp.CompareTag("NPC"))
+                        else if (tempTransform.CompareTag("NPC")) //targeting an NPC
+                        {
+                            target = tempTransform.gameObject;
+                            ActivateTargetPanel();
+                        }
+                        else  //targeting terrain, just move to the point
+                        {
+                            agent.destination = hit.point;
+                            agent.isStopped = false;
+                            Run();
+                        }
+                    }//target was not null
+                    else if(target.Equals(tempTransform.gameObject))   //second time targetting the same, move towards it
                     {
-                        if (temp.gameObject != target && target != null) //selecting a different target and previous not null
-                        {
-                            DeactivateTargetPanel();
-                        }
-                        target = hit.transform.root.gameObject;
-                        ActivateTargetPanel();
-                    }
-                    else
-                    {
-                        if (target != null)
-                        {
-
-                            //target.GetComponent<EnemyController>().Targeted(false);
-                            DeactivateTargetPanel();
-                        }
-                        target = null;
                         agent.destination = hit.point;
                         agent.isStopped = false;
                         Run();
                     }
+                    else   //target was not null, but targeting something different
+                    {
+                        DeactivateTargetPanel();
+                        if (tempTransform.CompareTag("Enemy")) //targeting an enemy
+                        {
+                            target.GetComponent<EnemyController>().Targeted(false);                   
+                            target = tempTransform.gameObject;
+                            ActivateTargetPanel();
+                        }
+                        else if (tempTransform.CompareTag("NPC"))  //targeting an NPC
+                        {
+                            target = tempTransform.gameObject;
+                            ActivateTargetPanel();
+                        }
+                        else //targeting the floor, cancel target
+                        {
+                            target = null;
+                            agent.destination = hit.point;
+                            agent.isStopped = false;
+                            Run();
+                        }
+                    }
                 }
-
-
-
             }
         }
+
+        if (Input.GetMouseButtonUp(0)) //debouncing
+        {
+            targeting = false;
+        }
+
         if (Input.GetKey(KeyCode.F1) && !attacking1 && target != null)
         {
             attacking1 = true;
