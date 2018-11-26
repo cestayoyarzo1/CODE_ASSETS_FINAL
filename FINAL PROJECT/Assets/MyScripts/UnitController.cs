@@ -83,6 +83,10 @@ public class UnitController : MonoBehaviour
                     }
                     else if (temp.CompareTag("NPC"))
                     {
+                        if (temp.gameObject != target && target != null) //selecting a different target and previous not null
+                        {
+                            DeactivateTargetPanel();
+                        }
                         target = hit.transform.root.gameObject;
                         ActivateTargetPanel();
                     }
