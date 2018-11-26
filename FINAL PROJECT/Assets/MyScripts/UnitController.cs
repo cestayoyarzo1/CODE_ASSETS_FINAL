@@ -94,7 +94,8 @@ public class UnitController : MonoBehaviour
                     {
                         if (target != null)
                         {
-                            target.GetComponent<EnemyController>().Targeted(false);
+
+                            //target.GetComponent<EnemyController>().Targeted(false);
                             DeactivateTargetPanel();
                         }
                         target = null;
