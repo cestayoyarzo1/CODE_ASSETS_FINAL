@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23662406637368618}
   m_Layer: 0
   m_Name: Crown
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488068069923668}
   m_LocalRotation: {x: -0.7071068, y: -0, z: 0.000000059604645, w: 0.7071068}
-  m_LocalPosition: {x: 342.25, y: 2.08, z: -278.52}
+  m_LocalPosition: {x: 341.12283, y: 1.8491869, z: 110.86371}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
