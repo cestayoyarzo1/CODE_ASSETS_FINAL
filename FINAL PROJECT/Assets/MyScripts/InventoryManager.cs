@@ -9,7 +9,7 @@ public class InventoryManager : MonoBehaviour
     int xInc, yInc, baseX, baseY;
     int invCount;
     [SerializeField]
-    GameObject Crown, Letter;
+    GameObject EliasCrown, EliasLetter, EliasInstructions;
 
 	void Start ()
     {
@@ -19,17 +19,28 @@ public class InventoryManager : MonoBehaviour
         baseX = -48;
         baseY = 31;
         SetPositions();
-        invCount = 9;
-        GameObject tempItem  = Instantiate(Crown, transform);
-        tempItem.transform.localPosition = positions[invCount++];
-        tempItem = Instantiate(Letter, transform);
-        tempItem.transform.localPosition = positions[invCount++];
+        invCount = 0;
+        AddInventory(EliasCrown);
+        AddInventory(EliasLetter);
+        AddInventory(EliasInstructions);
+
+        //GameObject tempItem  = Instantiate(EliasCrown, transform);
+        //tempItem.transform.localPosition = positions[invCount++];
+        //tempItem = Instantiate(EliasInstructions, transform);
+        //tempItem.transform.localPosition = positions[invCount++];
+
     }
 	
 	void Update ()
     {
 
 	}
+
+    void AddInventory(GameObject item)
+    {
+        GameObject tempItem = Instantiate(item, transform);
+        tempItem.transform.localPosition = positions[invCount++];
+    }
 
     void SetPositions()
     {

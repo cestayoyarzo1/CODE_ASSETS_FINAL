@@ -29,8 +29,11 @@ public class StatsController : MonoBehaviour
         stats.Level = level;
         stats.MaxHP = maxHP;
         stats.Health = maxHP;
-        nameTag = GetComponentInChildren<Text>();
-        nameTag.text = name + " (lvl " + level.ToString() + ")";
+        if(transform.tag.Equals("Enemy"))
+        {
+            nameTag = GetComponentInChildren<Text>();
+            nameTag.text = name + " (lvl " + level.ToString() + ")";
+        }
     }
 	
 	void Update ()

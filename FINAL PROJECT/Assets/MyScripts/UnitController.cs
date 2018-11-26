@@ -59,10 +59,7 @@ public class UnitController : MonoBehaviour
     {
         
 		if(Input.GetMouseButton(0))
-        {
-            GraphicRaycaster uiRay;
-            PhysicsRaycaster test;
-            
+        {      
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if(!EventSystem.current.IsPointerOverGameObject(uiMask))
@@ -82,6 +79,11 @@ public class UnitController : MonoBehaviour
                         target = hit.transform.root.gameObject;
                         Debug.Log("Enemy Targeted");
                         target.GetComponent<EnemyController>().Targeted(true);
+                        ActivateTargetPanel();
+                    }
+                    else if (temp.CompareTag("NPC"))
+                    {
+                        target = hit.transform.root.gameObject;
                         ActivateTargetPanel();
                     }
                     else
