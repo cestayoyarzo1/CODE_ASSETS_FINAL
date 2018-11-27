@@ -39,6 +39,8 @@ public class UnitController : MonoBehaviour
     [SerializeField]
     GameObject mainCanvas;
     AudioSource spellCast1;
+    [SerializeField]
+    float attackDistance, chatDistance;
     void Start ()
     {
         anim = GetComponent<Animator>();
@@ -153,6 +155,14 @@ public class UnitController : MonoBehaviour
                     if (!agent.hasPath || Mathf.Abs(agent.velocity.sqrMagnitude) < float.Epsilon)
                     {
                         agent.isStopped = true;
+                        if (target != null)
+                        {
+                            if(target.transform.CompareTag("NPC"))
+                            {
+                                GameObject tempPanel = mainCanvas.GetComponent<QuestManager>().OpenQuestPanel();
+                                target.GetComponent<NpcController>().LoadQuest(tempPanel);                             
+                            }
+                        }
                         Idle();
                     }
                 }

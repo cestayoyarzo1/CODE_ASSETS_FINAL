@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.2
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 200358498}
-  m_IndirectSpecularColor: {r: 0.19879052, g: 0.22374377, b: 0.2646857, a: 0.2}
+  m_IndirectSpecularColor: {r: 0.1987904, g: 0.22374353, b: 0.26468542, a: 0.2}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -3699,6 +3699,7 @@ GameObject:
   - component: {fileID: 350225288}
   - component: {fileID: 350225289}
   - component: {fileID: 350225290}
+  - component: {fileID: 350225291}
   m_Layer: 5
   m_Name: MainCanvas
   m_TagString: MainCanvas
@@ -3918,6 +3919,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &350225291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 350225283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37cfc2d0f8fbf8c4f94d9e7b25e1029a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questPanel: {fileID: 1094404011}
 --- !u!1001 &351593157
 Prefab:
   m_ObjectHideFlags: 0
@@ -6832,7 +6845,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 960556032}
   m_HandleRect: {fileID: 960556031}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

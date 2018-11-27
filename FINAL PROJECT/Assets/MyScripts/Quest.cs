@@ -19,6 +19,7 @@ public class Quest : MonoBehaviour
         Incomplete,
         Finished
     }
+    
 
     public Status questStatus;
 
@@ -40,7 +41,6 @@ public class Quest : MonoBehaviour
 		
 	}
 	
-
 	void Update ()
     {
 		
