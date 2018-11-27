@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 public class InventoryManager : MonoBehaviour
 {
 
@@ -33,7 +36,15 @@ public class InventoryManager : MonoBehaviour
 	
 	void Update ()
     {
-
+        if (Input.GetKey(KeyCode.Q))
+        {
+            
+            print("hello world");
+            if(CheckInventoryItem("EliasCrown"))
+            {
+                print("You got the crown!");
+            }
+        }
 	}
 
     void AddInventory(GameObject item)
@@ -41,7 +52,6 @@ public class InventoryManager : MonoBehaviour
         GameObject tempItem = Instantiate(item, transform);
         tempItem.transform.localPosition = positions[invCount++];
     }
-
     void SetPositions()
     {
         positions[0] = new Vector3(baseX + 0 * xInc, baseY, 0);
@@ -76,5 +86,18 @@ public class InventoryManager : MonoBehaviour
         positions[29] = new Vector3(baseX + 4 * xInc, baseY + 5 * yInc, 0);
     }
 
+    public bool CheckInventoryItem(string name)
+    {
+        GameObject[] items = GameObject.FindGameObjectsWithTag("InventoryItem");
 
+        print(items.Length + " items in inventory"); 
+        foreach (GameObject item in items)
+        {
+            if (item.GetComponent<InventoryItemScript>().name.Equals(name))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

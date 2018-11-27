@@ -13,6 +13,8 @@ TagManager:
   - DamageFromPlayer
   - NPC
   - Pickup
+  - Inventory
+  - InventoryItem
   layers:
   - Default
   - TransparentFX

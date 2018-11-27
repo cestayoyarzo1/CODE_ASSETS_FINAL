@@ -7,7 +7,7 @@ public class InventoryItemScript : MonoBehaviour
 {
 
     [SerializeField]
-    public string description;
+    public string description, name;
     [SerializeField]
     Text descText;
     [SerializeField]
@@ -17,6 +17,7 @@ public class InventoryItemScript : MonoBehaviour
 
 	void Start ()
     {
+        name = "EliasCrown";
         descText.text = description;
         thisButton = GetComponent<Button>();
         controller = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<PanelController>();
@@ -34,4 +35,6 @@ public class InventoryItemScript : MonoBehaviour
         controller.TogglePanel(panel);
         print("hello world");
     }
+
+
 }

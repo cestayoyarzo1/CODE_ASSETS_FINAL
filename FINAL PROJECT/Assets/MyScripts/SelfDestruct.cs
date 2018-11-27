@@ -12,7 +12,6 @@ public class SelfDestruct : MonoBehaviour
 
     }
 
-
     void Update()
     {
         if (timer > lifeTime)

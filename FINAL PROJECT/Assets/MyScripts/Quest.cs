@@ -14,7 +14,9 @@ public class Quest : MonoBehaviour
     public enum Status
     {
         NotStarted,
-        Inprogress,
+        Start,
+        Follow,
+        Incomplete,
         Finished
     }
 
@@ -31,12 +33,8 @@ public class Quest : MonoBehaviour
 
     public int Collected { get; set; }
 
-    public string StartMessage { get; set; }
 
-    public string UncompletedMessage { get; set; }
-
-    public string FinalMessage { get; set; }
-
+    public List<string> Messages;
     void Start ()
     {
 		
