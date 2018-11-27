@@ -18,7 +18,8 @@ public class NpcController : MonoBehaviour
 
     public void LoadQuest(GameObject panel)
     {
-        panel.GetComponent<QuestPanelScript>().title.text = QuestManager.data.CrownQuest.name;
+        QuestManager.data.StartCrownQuest();
+        panel.GetComponent<QuestPanelScript>().title.text = QuestManager.data.CrownQuest.Name;
         panel.GetComponent<QuestPanelScript>().body.text = QuestManager.data.CrownQuest.Messages[0];
     }
 

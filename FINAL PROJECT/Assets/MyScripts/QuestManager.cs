@@ -12,6 +12,7 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         data = this;
+        CrownQuest = new Quest();
     }
 	void Update ()
     {

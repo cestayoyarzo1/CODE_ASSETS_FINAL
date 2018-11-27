@@ -7,7 +7,7 @@ public struct QuestFlow
 
 }
 
-public class Quest : MonoBehaviour
+public class Quest
 {
     public string Name;
 
