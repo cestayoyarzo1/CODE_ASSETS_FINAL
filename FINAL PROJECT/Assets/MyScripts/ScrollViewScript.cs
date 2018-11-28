@@ -30,9 +30,10 @@ public class ScrollViewScript : MonoBehaviour
         if (timer > 1)
         {
             counter += (int)timer;
-            GameObject newTextObject = Instantiate(textObject, panel.transform);
-            newTextObject.GetComponent<Text>().text = counter.ToString() + " seconds have gone by";
-            AddMessage(newTextObject);
+            TypeMessage(counter.ToString() + " seconds have gone by");
+            //GameObject newTextObject = Instantiate(textObject, panel.transform);
+            //newTextObject.GetComponent<Text>().text = counter.ToString() + " seconds have gone by";
+            //AddMessage(newTextObject);
             timer = 0.0f;
         }
         else
@@ -53,6 +54,7 @@ public class ScrollViewScript : MonoBehaviour
         }
 
         messagelist.Add(messageObject);
+
         if (messagelist.Count >= maxMessages)
         {
             Destroy(messagelist[0].gameObject);
@@ -64,5 +66,27 @@ public class ScrollViewScript : MonoBehaviour
     {
         //verticalScroll.value = 0;
         autoscroll = true;
+    }
+
+    public void TypeMessage(string message)
+    {
+        GameObject newTextObject = Instantiate(textObject, panel.transform);
+        newTextObject.GetComponent<Text>().text = message;
+        AddMessage(newTextObject);
+    }
+
+    public void TypeMessage(string message, Color color)
+    {
+        GameObject newTextObject = Instantiate(textObject, panel.transform);
+        newTextObject.GetComponent<Text>().text = message;
+        if (counter >4)
+        {
+            newTextObject.GetComponent<Text>().color = Color.red;
+        }
+        else
+        {
+            newTextObject.GetComponent<Text>().color = Color.white;
+        }
+        AddMessage(newTextObject);
     }
 }
