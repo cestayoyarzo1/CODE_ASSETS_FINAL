@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class ScrollViewScript : MonoBehaviour
 {
     public List<GameObject> messagelist = new List<GameObject>();
-    int maxMessages = 30;
+    
+    public int maxMessages = 30;
 
     public GameObject panel;
     public GameObject textObject;
