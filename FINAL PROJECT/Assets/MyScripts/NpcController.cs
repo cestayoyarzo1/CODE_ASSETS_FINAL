@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class NpcController : MonoBehaviour
 {
+    enum myState
+    {
+        Idle,
+        Follow,
+        Attack,
+        Assist,
+        Dying,
+        Dead
+    }
 
 	void Start ()
     {
@@ -15,6 +24,8 @@ public class NpcController : MonoBehaviour
     {
 		
 	}
+
+
 
     public void LoadQuest(GameObject panel)
     {

@@ -15,7 +15,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     GameObject targeted;
     [SerializeField]
-    float attackDistance;
+    float attackDistance, chaseDistance;
+    [SerializeField]
+    GameObject prevTarget, currentTarget;
+    [SerializeField]
+    float walkingSpeed, runningSpeed;
 
     enum MonsterState
     {
@@ -81,8 +85,19 @@ public class EnemyController : MonoBehaviour
                     }
                 }
                 break;
+
+            case MonsterState.RunningTowards:
+                if(currentTarget != null && agent.remainingDistance <= attackDistance)
+                {
+                   Attack();
+                }
+                break;
             
             case MonsterState.Attacking:
+                if(Vector3.Distance(currentTarget.transform.position, transform.position) > chaseDistance)
+                {
+                    Chase();
+                }
                 break;
 
             case MonsterState.Dying:
@@ -153,6 +168,19 @@ public class EnemyController : MonoBehaviour
         myState = MonsterState.Dying;
     }
 
+    void Chase()
+    {
+        anim.SetBool("Die", false);
+        anim.SetBool("Attack", false);
+        anim.SetBool("Idle", false);
+        anim.SetBool("Walk", false);
+        anim.SetBool("Run", true);
+        agent.SetDestination(currentTarget.transform.position);
+        agent.isStopped = false;
+        agent.speed = runningSpeed;
+        myState = MonsterState.RunningTowards;
+    }
+
     Vector3 RandomNavmeshLocation(float radius)
     {
         Vector3 randomDirection = Random.insideUnitSphere * radius;
@@ -185,7 +213,7 @@ public class EnemyController : MonoBehaviour
     {
 
     }
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, GameObject sender)
     {
         health -= damage;
         Mathf.Clamp(health, 0, health);
@@ -194,5 +222,7 @@ public class EnemyController : MonoBehaviour
         {
             Die();
         }
+        currentTarget = sender;
+        Chase();
     }
 }

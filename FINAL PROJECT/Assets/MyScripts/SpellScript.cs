@@ -32,7 +32,7 @@ public class SpellScript : MonoBehaviour
         {
             print("enemy taking damage");
             float damage = Random.Range(100, 500);
-            hitEnemy.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
+            hitEnemy.gameObject.GetComponent<EnemyController>().TakeDamage(damage, sender);
         }
         Instantiate(hit, collision.collider.bounds.center, transform.rotation);
         Destroy(gameObject);  
