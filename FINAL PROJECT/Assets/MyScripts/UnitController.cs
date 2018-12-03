@@ -247,7 +247,7 @@ public class UnitController : MonoBehaviour
         anim.SetBool("Attack1", false);
         anim.SetBool("Attack2", true);
         playerState = PlayerState.Attack2;
-        GameObject temp = Instantiate(magicRing, transform.position, Quaternion.Euler(-90,0,0));
+        GameObject temp = Instantiate(magicRing, transform.position, Quaternion.identity);
         temp.transform.parent = transform;
     }
 
