@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f82aa7445f950f46b8d0737f163b7df
+guid: 62afa569fec0a0845acd4a6195106e54
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -242,12 +242,12 @@ ModelImporter:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
-    optimizeGameObjects: 0
+    optimizeGameObjects: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -264,6 +264,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths:
     - Armature/Bones/Hips_001/Hips/Spine/Chest/Sgoulder_R/UpperArm_R/LowerArm_R
+    - ZolrikScimitar
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
@@ -618,7 +619,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    rootMotionBoneRotation: {x: 0.56724274, y: 0.42456433, z: -0.5649566, w: -0.42285323}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

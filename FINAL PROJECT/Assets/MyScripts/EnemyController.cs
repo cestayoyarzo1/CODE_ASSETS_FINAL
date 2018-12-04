@@ -101,6 +101,7 @@ public class EnemyController : MonoBehaviour
                 break;
 
             case MonsterState.Dying:
+
                 break;
 
             case MonsterState.Dead:
@@ -218,11 +219,11 @@ public class EnemyController : MonoBehaviour
         health -= damage;
         Mathf.Clamp(health, 0, health);
         GetComponent<StatsController>().UpdateHealth(health);
-        if(health <= 0)
+        currentTarget = sender;
+        Chase();
+        if (health <= 0)
         {
             Die();
         }
-        currentTarget = sender;
-        Chase();
     }
 }
